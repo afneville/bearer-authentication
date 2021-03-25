@@ -36,7 +36,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));5000
 app.use('/api/user', require('./routes/api/user'));
 app.use('/api/conversation', require('./routes/api/conversation'));
-
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
