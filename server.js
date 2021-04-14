@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const db = require('./config/keys').mongoURI;
 
+// Mongodb connection options
 const options = {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -10,32 +11,23 @@ const options = {
   useFindAndModify: false,
   useUnifiedTopology: true
 }
+
+// Connect to the database
 mongoose.connect(db, options).then(() => {
     console.log("mongo connected");
 }).catch((err) => {
     console.log(err);
 });
 
-//function test_middleware(req, res, next) {
-//
-    //console.log("hello from middleware");
-    //req.body = {msg: "hello"};
-    //next();
-//}
-
-
-
+// Create the express app
 const app = express();
 
-//app.get('/test', test_middleware, (req, res) => {
-    //console.log("hello from main route");
-    //console.log(req.body.msg);
-    //res.sendStatus(200);
-//});
+// Use middleware and routes.
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));5000
+app.use(express.urlencoded({ extended: false }));
 app.use('/api/user', require('./routes/api/user'));
-app.use('/api/conversation', require('./routes/api/conversation'));
+
+// Start the server on a specified port or 5000
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);

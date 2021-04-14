@@ -1,5 +1,8 @@
 const jwt = require('jsonwebtoken');
 
+// These functions are used to handle the token on the server side
+
+// Used to create a new token when credentials are passed.
 function create_new_token(user, salt) {
 
     return new Promise((resolve, reject) => {
@@ -21,6 +24,7 @@ function create_new_token(user, salt) {
 
 }
 
+// Retrieve a token from a string
 function get_brearer_token(string) {
 
     return new Promise((resolve, reject) => {
@@ -39,7 +43,8 @@ function get_brearer_token(string) {
     });
 }
 
-function get_object_from_token(token, salt) {
+// Deobfuscate the token into the initial data.
+function get_user_from_token(token, salt) {
 
     return new Promise((resolve, reject) => {
 
@@ -60,4 +65,4 @@ function get_object_from_token(token, salt) {
     });
 }
 
-module.exports = { create_new_token, get_brearer_token, get_object_from_token };
+module.exports = { create_new_token, get_brearer_token, get_user_from_token };
