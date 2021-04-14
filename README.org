@@ -1,0 +1,15 @@
+#+TITLE: secure_json_api
+#+AUTHOR: Alexander Neville
+
+This repository holds some nodejs/express code that can be used for creating an api in a larger project.
+Using  hashing and web tokens, incoming requests can be authenticated using the =authenticate= middleware, along with other functions for handling tokens.
+the =config/keys.js= file holds the mongodb connection URI and the secret salt for creating the web tokens.
+
+* Endpoints
+
+The available endpoints are:
+
+1. post =api/user/register=
+2. post =api/user/login=
+3. get =api/user/dev-verify=
+4. delete =api/user/delete=
