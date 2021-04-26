@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 // A mongoose schema for an api user
+
 const UserSchema = mongoose.Schema({
 
     username: {
