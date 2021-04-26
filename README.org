@@ -61,10 +61,10 @@ Once a token had been retrieved, a client may make requests to protected routes.
 
 Get =/api/user/dev-verify= is included to test the API. No request body is required. To use the route set the /Authorization/ header to:
 
-/'Bearer <your_token>/'
+/Bearer <your_token>/
 
 ** Account Deletion
 
 Delete =/api/user/delete= is included to remove a users account from the database. No request body is required. To use the route set the /Authorization/ header to:
 
-/'Bearer <your_token>/'
+/Bearer <your_token>/
